@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 # Application definition
 INSTALLED_APPS = [
     'rest_framework',
+    "graphene_django",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,7 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api.apps.ApiConfig',
+    'graphapi.apps.GraphapiConfig'
 ]
+
+GRAPHENE = {
+    "SCHEMA": "graphapi.schema.schema"
+}
 
 CSRF_COOKIE_NAME = "csrftoken"
 REST_FRAMEWORK = {
@@ -47,6 +53,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     )
 }
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
